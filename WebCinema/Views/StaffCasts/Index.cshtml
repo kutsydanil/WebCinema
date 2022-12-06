@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CinemaCore.Models.StaffCasts>
+
+@{
+    ViewData["Title"] = "Группы сотрдуников";
+}
+
+<h1>Группы сотрудников</h1>
+
+<p>
+    <a asp-action="Create">Создать запись</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Событие
+            </th>
+            <th>
+                Сотрудник
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ListEvent.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Staff.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

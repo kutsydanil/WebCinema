@@ -1,0 +1,42 @@
+﻿@model CinemaCore.Models.ActorCasts
+
+@{
+    ViewData["Title"] = "Детали";
+}
+
+<h1>Детали</h1>
+
+<div>
+    <h4>Актерские группы</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Имя
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Actor.Name)
+        </dd>
+        <dt class="col-sm-2">
+            Фамилия
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Actor.Surname)
+        </dd>
+        <dt class="col-sm-2">
+            Отчество
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Actor.MiddleName)
+        </dd>
+        <dt class="col-sm-2">
+            Название фильма
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Film.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Редактировать</a> |
+    <a asp-action="Index">Назад</a>
+</div>

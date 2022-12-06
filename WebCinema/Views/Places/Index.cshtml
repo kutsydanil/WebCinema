@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CinemaCore.Models.Places>
+
+@{
+    ViewData["Title"] = "Места";
+}
+
+<h1>Места</h1>
+
+<p>
+    <a asp-action="Create">Создать запись</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Номер места
+            </th>
+            <th>
+                Занятость
+            </th>
+            <th>
+                Кинозал
+            </th>
+            <th>
+                Мероприятие
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlaceNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TakenSeat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CinemaHall.HallNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ListEvent.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Редактирвоать</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Детали</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
